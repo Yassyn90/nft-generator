@@ -22,7 +22,7 @@ st.set_page_config(page_title="NFT Generator")
 def generate_nft(prompt):
 
     inputs = {
-        'prompt': "Generate a {}  NFT token with a unique design and high value. The NFT should be one-of-a-kind and highly desirable to collectors.".format(prompt),
+        'prompt': prompt,
         
         'width': 512,
         'height': 512,
