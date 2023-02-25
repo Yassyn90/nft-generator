@@ -49,16 +49,6 @@ def generate_nft(prompt):
 
         st.sidebar.image(filename, width=250)
         
-        filename = "generated-nft.png"
-        with open(filename, "rb") as f:
-            # Add download button to sidebar
-            st.sidebar.download_button(
-                label='Download Image',
-                data=f,
-                file_name='generated-nft.png',
-                mime='image/png'
-            )
-            
         return True
             
     except :
@@ -79,7 +69,7 @@ def main():
     if st.button("Generate"):
         if prompt.strip() != "":
             if generate_nft(prompt) : 
-                st.sidebar.image(filename, width=250)
+                st.image(filename, width=250)
                 filename = "generated-nft.png"
                 with open(filename, "rb") as f:
                     # Add download button to sidebar
