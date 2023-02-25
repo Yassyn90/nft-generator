@@ -59,6 +59,8 @@ def generate_nft(prompt):
                 mime='image/png'
             )
             
+        return True
+            
     except :
         
         # Define the danger message
@@ -76,9 +78,17 @@ def main():
     # Generate NFT when the user clicks the "Generate" button
     if st.button("Generate"):
         if prompt.strip() != "":
-            generate_nft(prompt)
-
-            
+            if generate_nft(prompt) : 
+                st.sidebar.image(filename, width=250)
+                filename = "generated-nft.png"
+                with open(filename, "rb") as f:
+                    # Add download button to sidebar
+                    st.sidebar.download_button(
+                        label='Download Image',
+                        data=f,
+                        file_name='generated-nft.png',
+                        mime='image/png'
+                    )
        
 # Run Streamlit app
 if __name__ == "__main__":
