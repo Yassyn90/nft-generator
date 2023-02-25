@@ -11,17 +11,16 @@ from io import BytesIO
 
 
 
-os.environ["REPLICATE_API_TOKEN"] = "106aef97974cb28c4ae1fb605ccac9183d53fbcb"
+os.environ["REPLICATE_API_TOKEN"] = "72b509c5c8b102615de42e1d3889a68c275d7de4"
 model = replicate.models.get("prompthero/openjourney")
 version = model.versions.get("9936c2001faa2194a261c01381f90e65261879985476014a0a37a334593a05eb")
 
 # Set up Streamlit page layout
-st.set_page_config(page_title="NFT Generator", page_icon="logo.png", layout="wide")
+st.set_page_config(page_title="NFT Generator", page_icon="logo.png")
 st.image("logo.png", width=200)
 
 with open('style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
-
 
 
 
@@ -40,8 +39,7 @@ def generate_nft(prompt):
         
         
         output = version.predict(**inputs)
-        st.header("Generated NFT")
-        st.image("placeholder-img.gif", width=300)
+        st.sidebar.header("Generated NFT")
         url = output[0]
         response = requests.get(url)
         
@@ -49,12 +47,12 @@ def generate_nft(prompt):
         with open(filename, "wb") as f:
             f.write(response.content)
 
-        st.image(filename, width=300, use_column_width=True, caption="{} NFT".format(prompt))
+        st.sidebar.image(filename, width=250)
         
         filename = "generated-nft.png"
         with open(filename, "rb") as f:
             # Add download button to sidebar
-            st.download_button(
+            st.sidebar.download_button(
                 label='Download Image',
                 data=f,
                 file_name='generated-nft.png',
@@ -72,13 +70,14 @@ def generate_nft(prompt):
 def main():
     # Set up sidebar with prompt and model selection
     st.header("Enter your prompt")
-    prompt = st.text_input("What NFT are you looking to generate ?")
-    temp = ""
     
-    # Check if prompt is provided and generate NFT if it is
-    if prompt != temp and prompt != "":
-        temp = prompt
-        generate_nft(prompt)
+    prompt = st.text_input("What NFT are you looking to generate ?", placeholder=" ")
+    
+    # Generate NFT when the user clicks the "Generate" button
+    if st.button("Generate"):
+        if prompt.strip() != "":
+            generate_nft(prompt)
+
             
        
 # Run Streamlit app
