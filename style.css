@@ -1,0 +1,20 @@
+div.css-1v0mbdj.etr89bj1 {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 50px 0px -100px 0px;
+    padding: 0px;
+}
+
+#MainMenu {
+    visibility: hidden;
+}
+
+footer {
+    visibility: hidden;
+}
+
+div.stApp.streamlit-wide.css-ffhzg2.eczokvf1 {
+    background-color: #444654
+}
