@@ -2,16 +2,24 @@ div.stApp.css-ffhzg2.eczokvf1 {
     margin-top: -100px;
 }
 
+header.css-18ni7ap.e8zbici2 {
+   background-color: #0e1117;
+}   
+
+span.css-10trblm.e16nr0p30 {
+    color: #ffff;
+}
+
+p {
+    color: #ffff;
+}
+
 #MainMenu {
     visibility: hidden;
 }
 
 footer {
     visibility: hidden;
-}
-
-div.stApp.streamlit-wide.css-ffhzg2.eczokvf1 {
-    background-color: #444654
 }
 
 img {
@@ -30,14 +38,4 @@ div.css-1v0mbdj.etr89bj1 {
 }
 
 
-header.css-18ni7ap.e8zbici2 {
-   background-color: #0e1117;
-}   
 
-span.css-10trblm.e16nr0p30 {
-    color: #ffff;
-}
-
-p {
-    color: #ffff;
-}
