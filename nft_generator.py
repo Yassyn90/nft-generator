@@ -11,7 +11,7 @@ from io import BytesIO
 
 
 
-os.environ["REPLICATE_API_TOKEN"] = "72b509c5c8b102615de42e1d3889a68c275d7de4"
+os.environ["REPLICATE_API_TOKEN"] = "7fd532d94ac1130e1449ff336393689019f49c47"
 model = replicate.models.get("prompthero/openjourney")
 version = model.versions.get("9936c2001faa2194a261c01381f90e65261879985476014a0a37a334593a05eb")
 
