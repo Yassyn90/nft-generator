@@ -73,7 +73,7 @@ def main():
                 filename = "generated-nft.png"
                 with open(filename, "rb") as f:
                     # Add download button to sidebar
-                    st.sidebar.download_button(
+                    st.download_button(
                         label='Download Image',
                         data=f,
                         file_name='generated-nft.png',
